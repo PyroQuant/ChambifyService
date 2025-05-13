@@ -89,7 +89,7 @@ const Registration = () => {
         <div className="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
           {/* Usuario Form */}
           <motion.div 
-            className="bg-white text-darkText rounded-xl p-8 shadow-xl"
+            className="bg-white text-gray-800 rounded-xl p-8 shadow-xl"
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -194,142 +194,36 @@ const Registration = () => {
                     Procesando...
                   </span>
                 ) : (
-                  "Obtener mi descuento de $20.000 CLP"
+                  "Obtener mi bono de $20.000 CLP"
                 )}
               </button>
             </form>
           </motion.div>
 
-          {/* Chamber Form */}
+          {/* Chamber Information Section */}
           <motion.div 
-            className="bg-white text-darkText rounded-xl p-8 shadow-xl"
+            className="bg-white text-gray-800 rounded-xl p-8 shadow-xl flex flex-col items-center justify-center"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="font-poppins font-bold text-2xl mb-6 text-center text-secondary">
-              Regístrate como Chamber
+            <h3 className="font-poppins font-bold text-2xl mb-6 text-center text-primary">
+              ¿Quieres ser Chamber?
             </h3>
+            <img src="/images/chambers_pareja_1.png" alt="Pareja de Chambers" className="mb-6 mx-auto" style={{ maxWidth: '300px', height: 'auto' }} />
             <p className="mb-6 text-center">
               ¿Eres estudiante universitario y quieres generar ingresos extras?
-              Únete a nuestro equipo.
+              Conoce más sobre cómo unirte a nuestro equipo.
             </p>
-
-            <form onSubmit={chamberForm.handleSubmit(onChamberSubmit)} className="space-y-4">
-              <div>
-                <label htmlFor="chamber-name" className="block text-sm font-medium mb-1">
-                  Nombre completo
-                </label>
-                <input
-                  type="text"
-                  id="chamber-name"
-                  className={`w-full px-4 py-2 border ${chamberForm.formState.errors.name ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-colors`}
-                  placeholder="Ingresa tu nombre completo"
-                  {...chamberForm.register("name")}
-                />
-                {chamberForm.formState.errors.name && (
-                  <p className="mt-1 text-sm text-red-500">
-                    {chamberForm.formState.errors.name.message}
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="chamber-phone" className="block text-sm font-medium mb-1">
-                  Teléfono / WhatsApp
-                </label>
-                <input
-                  type="tel"
-                  id="chamber-phone"
-                  className={`w-full px-4 py-2 border ${chamberForm.formState.errors.phone ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-colors`}
-                  placeholder="+56 9 1234 5678"
-                  {...chamberForm.register("phone")}
-                />
-                {chamberForm.formState.errors.phone && (
-                  <p className="mt-1 text-sm text-red-500">
-                    {chamberForm.formState.errors.phone.message}
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="chamber-university" className="block text-sm font-medium mb-1">
-                  Universidad
-                </label>
-                <input
-                  type="text"
-                  id="chamber-university"
-                  className={`w-full px-4 py-2 border ${chamberForm.formState.errors.university ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-colors`}
-                  placeholder="¿Dónde estudias?"
-                  {...chamberForm.register("university")}
-                />
-                {chamberForm.formState.errors.university && (
-                  <p className="mt-1 text-sm text-red-500">
-                    {chamberForm.formState.errors.university.message}
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label htmlFor="chamber-email" className="block text-sm font-medium mb-1">
-                  Correo electrónico <span className="text-gray-500">(opcional)</span>
-                </label>
-                <input
-                  type="email"
-                  id="chamber-email"
-                  className={`w-full px-4 py-2 border ${chamberForm.formState.errors.email ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:ring-2 focus:ring-secondary focus:border-secondary transition-colors`}
-                  placeholder="tucorreo@ejemplo.com"
-                  {...chamberForm.register("email")}
-                />
-                {chamberForm.formState.errors.email && (
-                  <p className="mt-1 text-sm text-red-500">
-                    {chamberForm.formState.errors.email.message}
-                  </p>
-                )}
-              </div>
-
-              <div className="flex items-start">
-                <input
-                  type="checkbox"
-                  id="chamber-terms"
-                  className="mt-1 mr-2"
-                  {...chamberForm.register("terms")}
-                />
-                <label htmlFor="chamber-terms" className="text-sm">
-                  Acepto los{" "}
-                  <a href="#" className="text-primary hover:underline">
-                    términos y condiciones
-                  </a>{" "}
-                  y autorizo el uso de mis datos para recibir información sobre
-                  Chambify.
-                </label>
-              </div>
-              {chamberForm.formState.errors.terms && (
-                <p className="text-sm text-red-500">
-                  {chamberForm.formState.errors.terms.message}
-                </p>
-              )}
-
-              <button
-                type="submit"
-                className="w-full bg-secondary text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors"
-                disabled={registerMutation.isPending}
-                onClick={() => setActiveTab("chamber")}
-              >
-                {registerMutation.isPending && activeTab === "chamber" ? (
-                  <span className="flex items-center justify-center">
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Procesando...
-                  </span>
-                ) : (
-                  "Obtener mi bono de $20.000 CLP"
-                )}
-              </button>
-            </form>
+            <a
+              href="https://chambify.com/chambers-landing" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 w-full max-w-xs block text-center bg-orange-500 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors"
+            >
+              Más información para Chambers
+            </a>
           </motion.div>
         </div>
       </div>

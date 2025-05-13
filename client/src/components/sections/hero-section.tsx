@@ -30,7 +30,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.a
                 href="#registro"
-                className="bg-secondary text-white font-bold py-4 px-8 rounded-lg text-center text-lg hover:bg-orange-600 transition-colors shadow-lg"
+                className="bg-orange-600 text-white font-bold py-4 px-8 rounded-lg text-center text-lg hover:bg-orange-700 transition-colors shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -38,7 +38,7 @@ const HeroSection = () => {
               </motion.a>
               <motion.a
                 href="tel:+56912345678"
-                className="bg-white text-primary font-bold py-4 px-8 rounded-lg text-center text-lg flex items-center justify-center gap-2 hover:bg-gray-100 transition-colors shadow-lg"
+                className="bg-gray-100 text-primary font-bold py-4 px-8 rounded-lg text-center text-lg flex items-center justify-center gap-2 transition-colors shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
