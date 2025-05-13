@@ -183,9 +183,9 @@ app.use((req, res, next) => {
       res.status(status).json({ message });
     }
   });
-  if (production === "development") {
+  if (false) {
     try {
-      const vitePackage = await import("vite");
+      const vitePackage = await null;
       const viteDevServer = await vitePackage.createServer({
         server: { middlewareMode: true, hmr: { server } },
         // 'server' is the http.Server instance from registerRoutes
