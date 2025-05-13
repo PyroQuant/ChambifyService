@@ -56,10 +56,16 @@ app.use((req, res, next) => {
 
   if (process.env.NODE_ENV === "development") {
     try {
-      const viteModule = await import("./vite");
-      await viteModule.setupVite(app, server);
-      if (viteModule.log) {
-        logger = viteModule.log; // Use Vite's logger in dev
+      const vitePackage = await import("vite");
+      const viteDevServer = await vitePackage.createServer({
+        server: { middlewareMode: true, hmr: { server } }, // 'server' is the http.Server instance from registerRoutes
+        appType: 'custom',
+      });
+      app.use(viteDevServer.middlewares);
+
+      // Use Vite's logger if available
+      if (viteDevServer.config.logger && typeof viteDevServer.config.logger.info === 'function') {
+        logger = viteDevServer.config.logger.info; 
       }
       logger("Vite dev server configured and running.");
     } catch (e) {
