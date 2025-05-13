@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copia los archivos de definición de paquetes e instala dependencias
 COPY package.json package-lock.json ./
-RUN npm install --omit=dev
+RUN npm install
 
 # Copia el resto del código de la aplicación
 COPY . .
@@ -24,7 +24,6 @@ COPY --from=builder /app/package.json /app/package-lock.json ./
 RUN npm install --omit=dev --ignore-scripts
 
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/node_modules ./node_modules
 
 # Expone el puerto en el que corre la aplicación
 EXPOSE 5001
