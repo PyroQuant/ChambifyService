@@ -1,14 +1,20 @@
-import express, { type Request, Response, NextFunction } from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+import express, { type Request, Response, NextFunction, type Express as ExpressApp } from "express";
 import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+let logger = console.log; // Default logger, can be overridden by Vite's logger in dev
+
 app.use((req, res, next) => {
   const start = Date.now();
-  const path = req.path;
+  const reqPath = req.path;
   let capturedJsonResponse: Record<string, any> | undefined = undefined;
 
   const originalResJson = res.json;
@@ -19,8 +25,8 @@ app.use((req, res, next) => {
 
   res.on("finish", () => {
     const duration = Date.now() - start;
-    if (path.startsWith("/api")) {
-      let logLine = `${req.method} ${path} ${res.statusCode} in ${duration}ms`;
+    if (reqPath.startsWith("/api")) {
+      let logLine = `${req.method} ${reqPath} ${res.statusCode} in ${duration}ms`;
       if (capturedJsonResponse) {
         logLine += ` :: ${JSON.stringify(capturedJsonResponse)}`;
       }
@@ -28,8 +34,7 @@ app.use((req, res, next) => {
       if (logLine.length > 80) {
         logLine = logLine.slice(0, 79) + "…";
       }
-
-      log(logLine);
+      logger(logLine);
     }
   });
 
@@ -39,31 +44,73 @@ app.use((req, res, next) => {
 (async () => {
   const server = await registerRoutes(app);
 
+  // Error handling middleware
   app.use((err: any, _req: Request, res: Response, _next: NextFunction) => {
     const status = err.status || err.statusCode || 500;
     const message = err.message || "Internal Server Error";
-
-    res.status(status).json({ message });
-    throw err;
+    console.error("Error handling request:", err.stack || err.message || err);
+    if (!res.headersSent) {
+      res.status(status).json({ message });
+    }
   });
 
-  // importantly only setup vite in development and after
-  // setting up all the other routes so the catch-all route
-  // doesn't interfere with the other routes
-  if (app.get("env") === "development") {
-    await setupVite(app, server);
-  } else {
-    serveStatic(app);
+  if (process.env.NODE_ENV === "development") {
+    try {
+      const viteModule = await import("./vite");
+      await viteModule.setupVite(app, server);
+      if (viteModule.log) {
+        logger = viteModule.log; // Use Vite's logger in dev
+      }
+      logger("Vite dev server configured and running.");
+    } catch (e) {
+      console.error("Failed to setup Vite for development:", e);
+      logger = console.log; // Fallback to console.log
+      logger("Vite setup failed, continuing with standard logging.");
+      // Consider if static serving is needed here as a fallback if Vite fully fails
+    }
+  } else { // Production or other environments
+    const prodServeStatic = (expressApp: ExpressApp) => {
+      const clientDistPublic = path.resolve(__dirname, "public");
+      const clientIndex = path.resolve(clientDistPublic, "index.html");
+
+      expressApp.use(express.static(clientDistPublic));
+      expressApp.get("*", (_req_prod, res_prod) => {
+        res_prod.sendFile(clientIndex, (err_sendFile) => {
+          if (err_sendFile) {
+            console.error("Error sending index.html:", err_sendFile);
+            if (!res_prod.headersSent) {
+              // Check if it's an API-like path, which shouldn't serve index.html
+              if (!_req_prod.path.startsWith("/api/")) {
+                 res_prod.status(404).json({ message: "Client entry point not found or error serving file." });
+              } else {
+                // For API routes that fell through, ensure 404 if not handled by router
+                res_prod.status(404).json({ message: "API endpoint not found."}) ;
+              }
+            }
+          }
+        });
+      });
+    };
+    prodServeStatic(app);
+    logger("Static files configured for production.");
   }
 
-  // ALWAYS serve the app on port 5000
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
+  // Fallback for any routes not handled yet (e.g. API routes that don't match)
+  app.use((_req, res, _next) => {
+    if (!res.headersSent) {
+        // This will catch requests that didn't match API routes and weren't caught by SPA's '*' static handler
+        res.status(404).json({ message: "Resource not found." });
+    }
+  });
+
   const port = 5001;
   server.listen({
     port,
     host: "0.0.0.0",
   }, () => {
-    log(`serving on port 5001`);
+    logger(`Serving on port ${port}`);
   });
-})();
+})().catch(err => {
+  console.error("Failed to start server:", err);
+  process.exit(1);
+});
