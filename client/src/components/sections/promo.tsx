@@ -56,8 +56,8 @@ const Promo = () => {
             </div>
             <div className="md:w-1/2">
               <img
-                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80"
-                alt="Clientes felices recibiendo su entrega"
+                src="/images/chambers_cargando_sofa.png"
+                alt="Chambers cargando sofá"
                 className="w-full h-full object-cover"
               />
             </div>
