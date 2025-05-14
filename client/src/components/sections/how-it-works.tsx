@@ -99,8 +99,8 @@ const HowItWorks = () => {
               En menos de 15 minutos recibirás la confirmación de tu servicio.
             </p>
             <img
-              src="/images/chambers_pareja_humanos.png"
-              alt="Chambers pareja humanos"
+              src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80"
+              alt="Confirmación en smartphone"
               className="rounded-lg mx-auto shadow"
             />
           </motion.div>
@@ -121,9 +121,10 @@ const HowItWorks = () => {
               realizar el servicio.
             </p>
             <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80"
-              alt="Estudiantes llegando a ayudar"
-              className="rounded-lg mx-auto shadow"
+              src="/images/chambers_pareja_humanos.png"
+              alt="Chambers pareja humanos"
+              className="rounded-lg mx-auto shadow object-cover"
+              style={{ width: '100%', maxWidth: 500, height: 300 }}
             />
           </motion.div>
         </motion.div>
