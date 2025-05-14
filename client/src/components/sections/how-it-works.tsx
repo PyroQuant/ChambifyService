@@ -56,7 +56,7 @@ const HowItWorks = () => {
               Contáctanos por teléfono o WhatsApp para solicitar el servicio que
               necesitas.
             </p>
-            <div className="flex justify-center gap-3">
+            <div className="flex flex-col md:flex-row justify-center gap-3 w-full max-w-xs mx-auto">
               <a
                 href="tel:+56966261804"
                 className="flex items-center justify-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
