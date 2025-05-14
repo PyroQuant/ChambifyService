@@ -56,28 +56,28 @@ const HowItWorks = () => {
               Contáctanos por teléfono o WhatsApp para solicitar el servicio que
               necesitas.
             </p>
-            <div className="flex flex-col md:flex-row justify-center gap-3 w-full max-w-xs mx-auto">
+            <div className="flex flex-col md:flex-row justify-center gap-3 w-full mx-auto">
               <a
                 href="tel:+56966261804"
-                className="flex items-center justify-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                className="w-full md:w-auto flex items-center justify-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 <i className="fas fa-phone-alt"></i> +56 9 6626 1804
               </a>
               <a
                 href="tel:+56942987869"
-                className="flex items-center justify-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                className="w-full md:w-auto flex items-center justify-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
               >
                 <i className="fas fa-phone-alt"></i> +56 9 4298 7869
               </a>
               <a
                 href="https://wa.me/56966261804"
-                className="flex items-center justify-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                className="w-full md:w-auto flex items-center justify-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
               >
                 <i className="fab fa-whatsapp"></i> WhatsApp 1
               </a>
               <a
                 href="https://wa.me/56942987869"
-                className="flex items-center justify-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                className="w-full md:w-auto flex items-center justify-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
               >
                 <i className="fab fa-whatsapp"></i> WhatsApp 2
               </a>
