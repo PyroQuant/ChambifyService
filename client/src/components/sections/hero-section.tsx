@@ -27,7 +27,7 @@ const HeroSection = () => {
               pesados dentro de tu hogar. Estudiantes universitarios verificados
               a tu servicio.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-xl md:mx-0 mx-auto">
               <motion.a
                 href="tel:+56966261804"
                 className="w-full bg-gray-100 text-primary font-bold py-4 px-8 rounded-lg text-center text-lg flex items-center justify-center gap-2 transition-colors shadow-lg"

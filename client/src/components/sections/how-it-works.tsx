@@ -99,8 +99,8 @@ const HowItWorks = () => {
               En menos de 15 minutos recibirás la confirmación de tu servicio.
             </p>
             <img
-              src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=300&q=80"
-              alt="Confirmación en smartphone"
+              src="/images/chambers_pareja_humanos.png"
+              alt="Chambers pareja humanos"
               className="rounded-lg mx-auto shadow"
             />
           </motion.div>
