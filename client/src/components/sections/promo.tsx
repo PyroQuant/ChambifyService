@@ -19,7 +19,7 @@ const Promo = () => {
               <p className="text-lg text-gray-600 mb-8">
                 Contáctanos ahora y obtén una respuesta en menos de 15 minutos.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                 <motion.a
                   href="tel:+56966261804"
                   className="bg-primary text-white py-4 px-6 rounded-lg text-center font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors"
@@ -53,6 +53,15 @@ const Promo = () => {
                   <i className="fab fa-whatsapp"></i> WhatsApp 2
                 </motion.a>
               </div>
+              <motion.a
+                href="#registro"
+                className="block bg-orange-600 text-white font-bold py-5 px-8 rounded-xl text-center text-lg md:text-xl hover:bg-orange-700 transition-colors shadow-lg w-full max-w-xl mx-auto"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Preinscríbete y asegura tu bono de $20.000 para el lanzamiento<br/>
+                <span className="text-xs font-normal block mt-1">Recibirás tu bono cuando la app esté disponible oficialmente. ¡Te avisaremos!</span>
+              </motion.a>
             </div>
             <div className="md:w-1/2">
               <img

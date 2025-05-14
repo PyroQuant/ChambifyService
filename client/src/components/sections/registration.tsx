@@ -77,12 +77,10 @@ const Registration = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="font-poppins font-bold text-3xl md:text-4xl mb-4">
-            ¡Regístrate ahora y obtén{" "}
-            <span className="text-secondary">$20.000 CLP</span> de regalo!
+            ¡Preinscríbete para el lanzamiento y asegura tu bono de <span className='text-secondary'>$20.000 CLP</span>!
           </h2>
           <p className="text-lg max-w-2xl mx-auto">
-            Solo por pre-registrarte antes del lanzamiento oficial de nuestra
-            aplicación. Oferta válida tanto para usuarios como para Chamber.
+            Tu preinscripción te garantiza el bono, que será válido y entregado cuando la app esté disponible oficialmente. ¡Te avisaremos al lanzamiento!
           </p>
         </motion.div>
 
@@ -96,11 +94,10 @@ const Registration = () => {
             transition={{ duration: 0.6 }}
           >
             <h3 className="font-poppins font-bold text-2xl mb-6 text-center text-primary">
-              Regístrate como Usuario
+              Preinscríbete como Usuario y asegura tu bono de $20.000 CLP para cuando la app esté disponible
             </h3>
             <p className="mb-6 text-center">
-              ¿Necesitas ayuda con cargas pesadas? Regístrate y obtén $20.000 CLP
-              de descuento en tu primer servicio.
+              ¿Necesitas ayuda con cargas pesadas? Preinscríbete y asegura tu bono de $20.000 CLP para cuando la app se lance oficialmente.
             </p>
 
             <form onSubmit={userForm.handleSubmit(onUserSubmit)} className="space-y-4">

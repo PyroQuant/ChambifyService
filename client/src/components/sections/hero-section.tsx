@@ -27,18 +27,10 @@ const HeroSection = () => {
               pesados dentro de tu hogar. Estudiantes universitarios verificados
               a tu servicio.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <motion.a
-                href="#registro"
-                className="bg-orange-600 text-white font-bold py-4 px-8 rounded-lg text-center text-lg hover:bg-orange-700 transition-colors shadow-lg"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Registrate y obtén $20.000
-              </motion.a>
+            <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <motion.a
                 href="tel:+56966261804"
-                className="bg-gray-100 text-primary font-bold py-4 px-8 rounded-lg text-center text-lg flex items-center justify-center gap-2 transition-colors shadow-lg"
+                className="w-full sm:w-auto bg-gray-100 text-primary font-bold py-4 px-8 rounded-lg text-center text-lg flex items-center justify-center gap-2 transition-colors shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -46,13 +38,22 @@ const HeroSection = () => {
               </motion.a>
               <motion.a
                 href="tel:+56942987869"
-                className="bg-gray-100 text-primary font-bold py-4 px-8 rounded-lg text-center text-lg flex items-center justify-center gap-2 transition-colors shadow-lg"
+                className="w-full sm:w-auto bg-gray-100 text-primary font-bold py-4 px-8 rounded-lg text-center text-lg flex items-center justify-center gap-2 transition-colors shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <i className="fas fa-phone-alt"></i> Llamar +56 9 4298 7869
               </motion.a>
             </div>
+            <motion.a
+              href="#registro"
+              className="block bg-orange-600 text-white font-bold py-5 px-8 rounded-xl text-center text-lg md:text-xl hover:bg-orange-700 transition-colors shadow-lg w-full max-w-xl mx-auto"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              Preinscríbete y asegura tu bono de $20.000 para el lanzamiento<br/>
+              <span className="text-xs font-normal block mt-1">Recibirás tu bono cuando la app esté disponible oficialmente. ¡Te avisaremos!</span>
+            </motion.a>
           </motion.div>
           <motion.div 
             className="md:w-1/2 md:pl-12"
