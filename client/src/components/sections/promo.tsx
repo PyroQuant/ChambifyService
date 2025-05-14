@@ -53,15 +53,6 @@ const Promo = () => {
                   <i className="fab fa-whatsapp"></i> WhatsApp 2
                 </motion.a>
               </div>
-              <motion.a
-                href="#registro"
-                className="block bg-orange-600 text-white font-bold py-5 px-8 rounded-xl text-center text-lg md:text-xl hover:bg-orange-700 transition-colors shadow-lg w-full max-w-xl mx-auto"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Preinscríbete y asegura tu bono de $20.000 para el lanzamiento<br/>
-                <span className="text-xs font-normal block mt-1">Recibirás tu bono cuando la app esté disponible oficialmente. ¡Te avisaremos!</span>
-              </motion.a>
             </div>
             <div className="md:w-1/2">
               <img
