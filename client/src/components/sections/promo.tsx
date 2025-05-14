@@ -21,20 +21,36 @@ const Promo = () => {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <motion.a
-                  href="tel:+56912345678"
+                  href="tel:+56966261804"
                   className="bg-primary text-white py-4 px-6 rounded-lg text-center font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <i className="fas fa-phone-alt"></i> +569 1234 5678
+                  <i className="fas fa-phone-alt"></i> +56 9 6626 1804
                 </motion.a>
                 <motion.a
-                  href="https://wa.me/56912345678"
+                  href="tel:+56942987869"
+                  className="bg-primary text-white py-4 px-6 rounded-lg text-center font-bold flex items-center justify-center gap-2 hover:bg-blue-700 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <i className="fas fa-phone-alt"></i> +56 9 4298 7869
+                </motion.a>
+                <motion.a
+                  href="https://wa.me/56966261804"
                   className="bg-green-500 text-white py-4 px-6 rounded-lg text-center font-bold flex items-center justify-center gap-2 hover:bg-green-600 transition-colors"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <i className="fab fa-whatsapp"></i> WhatsApp
+                  <i className="fab fa-whatsapp"></i> WhatsApp 1
+                </motion.a>
+                <motion.a
+                  href="https://wa.me/56942987869"
+                  className="bg-green-500 text-white py-4 px-6 rounded-lg text-center font-bold flex items-center justify-center gap-2 hover:bg-green-600 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <i className="fab fa-whatsapp"></i> WhatsApp 2
                 </motion.a>
               </div>
             </div>

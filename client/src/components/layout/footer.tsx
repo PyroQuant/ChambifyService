@@ -59,19 +59,37 @@ const Footer = () => {
                 <li className="flex items-center">
                   <i className="fas fa-phone-alt mr-2 text-gray-400"></i>
                   <a
-                    href="tel:+56912345678"
+                    href="tel:+56966261804"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    +569 1234 5678
+                    +56 9 6626 1804
+                  </a>
+                </li>
+                <li className="flex items-center">
+                  <i className="fas fa-phone-alt mr-2 text-gray-400"></i>
+                  <a
+                    href="tel:+56942987869"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    +56 9 4298 7869
                   </a>
                 </li>
                 <li className="flex items-center">
                   <i className="fab fa-whatsapp mr-2 text-gray-400"></i>
                   <a
-                    href="https://wa.me/56912345678"
+                    href="https://wa.me/56966261804"
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    WhatsApp
+                    WhatsApp 1
+                  </a>
+                </li>
+                <li className="flex items-center">
+                  <i className="fab fa-whatsapp mr-2 text-gray-400"></i>
+                  <a
+                    href="https://wa.me/56942987869"
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    WhatsApp 2
                   </a>
                 </li>
                 <li className="flex items-center">

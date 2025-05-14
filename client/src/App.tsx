@@ -9,7 +9,17 @@ const RedirectToWhatsAppQR1 = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_location, navigate] = useLocation();
   useEffect(() => {
-    window.location.href = "https://api.whatsapp.com/send?phone=56966261804&text=Hola%2C%20Quisiera%20solicitar%20un%20chamber%20en%20______%2C%20para%20ma%C3%B1ana%20a%20las%2017%20hrs.";
+    // Alternancia simple usando localStorage (persistente por navegador)
+    const numbers = [
+      "56966261804",
+      "56942987869"
+    ];
+    let lastIndex = parseInt(localStorage.getItem("wa_last_index") || "0", 10);
+    const nextIndex = (lastIndex + 1) % numbers.length;
+    localStorage.setItem("wa_last_index", nextIndex.toString());
+    const phone = numbers[nextIndex];
+    const text = encodeURIComponent("Hola, Quisiera solicitar un chamber en ______, para mañana a las 17 hrs.");
+    window.location.href = `https://api.whatsapp.com/send?phone=${phone}&text=${text}`;
   }, [navigate]);
   return null; // O un componente de carga mientras redirige
 };
