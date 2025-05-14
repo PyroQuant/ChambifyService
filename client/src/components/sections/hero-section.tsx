@@ -37,12 +37,20 @@ const HeroSection = () => {
                 Registrate y obtén $20.000
               </motion.a>
               <motion.a
-                href="tel:+56912345678"
+                href="tel:+56966261804"
                 className="bg-gray-100 text-primary font-bold py-4 px-8 rounded-lg text-center text-lg flex items-center justify-center gap-2 transition-colors shadow-lg"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <i className="fas fa-phone-alt"></i> Llamar ahora
+                <i className="fas fa-phone-alt"></i> Llamar +56 9 6626 1804
+              </motion.a>
+              <motion.a
+                href="tel:+56942987869"
+                className="bg-gray-100 text-primary font-bold py-4 px-8 rounded-lg text-center text-lg flex items-center justify-center gap-2 transition-colors shadow-lg"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <i className="fas fa-phone-alt"></i> Llamar +56 9 4298 7869
               </motion.a>
             </div>
           </motion.div>
@@ -53,8 +61,8 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1560440021-33f9b867899d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80"
-              alt="Estudiante moviendo muebles con entusiasmo"
+              src="/images/chamber_persona.png"
+              alt="Persona de Chambify"
               className="rounded-xl shadow-2xl w-full"
             />
           </motion.div>

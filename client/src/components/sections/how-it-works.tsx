@@ -58,16 +58,28 @@ const HowItWorks = () => {
             </p>
             <div className="flex justify-center gap-3">
               <a
-                href="tel:+56912345678"
+                href="tel:+56966261804"
                 className="flex items-center justify-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
               >
-                <i className="fas fa-phone-alt"></i> +569 1234 5678
+                <i className="fas fa-phone-alt"></i> +56 9 6626 1804
               </a>
               <a
-                href="https://wa.me/56912345678"
+                href="tel:+56942987869"
+                className="flex items-center justify-center gap-2 bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                <i className="fas fa-phone-alt"></i> +56 9 4298 7869
+              </a>
+              <a
+                href="https://wa.me/56966261804"
                 className="flex items-center justify-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
               >
-                <i className="fab fa-whatsapp"></i> WhatsApp
+                <i className="fab fa-whatsapp"></i> WhatsApp 1
+              </a>
+              <a
+                href="https://wa.me/56942987869"
+                className="flex items-center justify-center gap-2 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+              >
+                <i className="fab fa-whatsapp"></i> WhatsApp 2
               </a>
             </div>
           </motion.div>
